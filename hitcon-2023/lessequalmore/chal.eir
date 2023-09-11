@@ -1,0 +1,1514 @@
+
+main:
+
+mov C, 0
+mov D, 0
+mov B, prompt
+
+    sub SP, 1
+    mov A, .L1
+    store A, SP
+    jmp print_buffer
+    .L1:
+
+mov B, input
+
+    sub SP, 1
+    mov A, .L2
+    store A, SP
+    jmp input_flag
+    .L2:
+
+mov B, prompt2
+
+    sub SP, 1
+    mov A, .L3
+    store A, SP
+    jmp print_buffer
+    .L3:
+
+mov B, input
+
+    sub SP, 1
+    mov A, .L4
+    store A, SP
+    jmp print_buffer
+    .L4:
+
+.checkall:
+mov B, 0
+mov B, input
+add B, D
+mov C, buf
+
+    sub SP, 1
+    mov A, .L5
+    store A, SP
+    jmp matmult1
+    .L5:
+
+mov B, input
+add B, D
+mov C, buf
+
+    sub SP, 1
+    mov A, .L6
+    store A, SP
+    jmp memcpy
+    .L6:
+
+
+mov B, 0
+mov B, input
+add B, D
+mov C, buf
+
+    sub SP, 1
+    mov A, .L7
+    store A, SP
+    jmp matmult2
+    .L7:
+
+mov B, input
+add B, D
+mov C, buf
+
+    sub SP, 1
+    mov A, .L8
+    store A, SP
+    jmp memcpy
+    .L8:
+
+
+add D, 8
+jne .checkall, D, 64
+
+mov D, 0
+.checkans:
+
+mov B, input
+add B, D
+load B, B
+mov C, target
+add C, D
+load C, C
+jne .losing, B, C
+add D, 1
+jne .checkans, D, 64
+
+.winning:
+mov B, win
+
+    sub SP, 1
+    mov A, .L9
+    store A, SP
+    jmp print_buffer
+    .L9:
+
+exit
+
+.losing:
+mov B, lose
+
+    sub SP, 1
+    mov A, .L10
+    store A, SP
+    jmp print_buffer
+    .L10:
+
+exit
+
+input_flag:
+
+mov A, SP
+
+    sub SP, 1
+    mov A, B
+    store A, SP
+
+    
+    sub SP, 1
+    mov A, BP
+    store A, SP
+
+    mov BP, SP
+    sub SP, 0
+
+.forloop1:
+mov A, 0
+getc A
+jeq .exit1, A, 10
+store A, B
+add B, 1
+jmp .forloop1
+.exit1:
+mov A, 0
+store A, B
+mov SP, BP
+
+    load BP, SP
+    add SP, 1
+
+    load B, SP
+    add SP, 1
+
+    load A, SP
+    add SP, 1
+    jmp A
+
+print_buffer:
+
+mov A, SP
+
+    sub SP, 1
+    mov A, B
+    store A, SP
+
+    
+    sub SP, 1
+    mov A, BP
+    store A, SP
+
+    mov BP, SP
+    sub SP, 0
+
+.forloop2:
+load A, B
+jeq .exit2, A, 0
+putc A
+add B, 1
+jmp .forloop2
+.exit2:
+putc 10
+mov SP, BP
+
+    load BP, SP
+    add SP, 1
+
+    load B, SP
+    add SP, 1
+
+    load A, SP
+    add SP, 1
+    jmp A
+
+matmult1:
+
+mov A, SP
+
+    sub SP, 1
+    mov A, B
+    store A, SP
+
+    sub SP, 1
+    mov A, C
+    store A, SP
+
+    
+    sub SP, 1
+    mov A, BP
+    store A, SP
+
+    mov BP, SP
+    sub SP, 0
+
+
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 0
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 0
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 2
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 3
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 1
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 1
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 2
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 3
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 4
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 2
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 2
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            add B, A
+add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 3
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 0
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 1
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 2
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 3
+            load A, A
+            load B, C
+            add B, A
+add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            add B, A
+add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            add B, A
+add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            add B, A
+add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 4
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 0
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 1
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 2
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 3
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 4
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 5
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 0
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 1
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 2
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 3
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 4
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 6
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 0
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 1
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 2
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 4
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            add B, A
+add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            add B, A
+add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 7
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 0
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 3
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 4
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+mov SP, BP
+
+    load BP, SP
+    add SP, 1
+
+    load C, SP
+    add SP, 1
+
+    load B, SP
+    add SP, 1
+
+    load A, SP
+    add SP, 1
+    jmp A
+
+matmult2:
+
+mov A, SP
+
+    sub SP, 1
+    mov A, B
+    store A, SP
+
+    sub SP, 1
+    mov A, C
+    store A, SP
+
+    
+    sub SP, 1
+    mov A, BP
+    store A, SP
+
+    mov BP, SP
+    sub SP, 0
+
+
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 0
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 0
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 3
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 1
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 0
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 1
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 3
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 4
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 2
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 0
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 2
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 3
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 4
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            add B, A
+add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 3
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 0
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 3
+            load A, A
+            load B, C
+            add B, A
+add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 4
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 2
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 5
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 1
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 3
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 4
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 6
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 0
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 1
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 3
+            load A, A
+            load B, C
+            add B, A
+add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 4
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            add B, A
+add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 7
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 1
+            load C, A
+            add C, 7
+            mov A, 0
+            store A, C
+        
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 0
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 1
+            load A, A
+            load B, C
+            add B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 4
+            load A, A
+            load B, C
+            sub B, A
+sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 5
+            load A, A
+            load B, C
+            sub B, A
+
+            store B, C
+            
+            mov A, BP
+            add A, 2
+            load A, A
+            add A, 6
+            load A, A
+            load B, C
+            add B, A
+add B, A
+add B, A
+
+            store B, C
+            
+mov SP, BP
+
+    load BP, SP
+    add SP, 1
+
+    load C, SP
+    add SP, 1
+
+    load B, SP
+    add SP, 1
+
+    load A, SP
+    add SP, 1
+    jmp A
+
+memcpy:
+
+mov A, SP
+
+    sub SP, 1
+    mov A, B
+    store A, SP
+
+    sub SP, 1
+    mov A, C
+    store A, SP
+
+    sub SP, 1
+    mov A, D
+    store A, SP
+
+    
+    sub SP, 1
+    mov A, BP
+    store A, SP
+
+    mov BP, SP
+    sub SP, 0
+
+
+    mov D, 0
+    .loopmemcpy:
+    mov A, BP
+    add A, 3
+    load A, A
+    add A, D
+    mov B, BP
+    add B, 2
+    load B, B
+    add B, D
+    load B, B
+    store B, A
+    add D, 1
+    jne .loopmemcpy, D, 8
+    
+mov SP, BP
+
+    load BP, SP
+    add SP, 1
+
+    load D, SP
+    add SP, 1
+
+    load C, SP
+    add SP, 1
+
+    load B, SP
+    add SP, 1
+
+    load A, SP
+    add SP, 1
+    jmp A
+
+.data
+ input: 
+ .string "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+ buf: 
+ .string "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+ target:
+ .long -3016
+.long 1411
+.long -941
+.long 3646
+.long 1532
+.long 6451
+.long 2510
+.long -75
+.long -1960
+.long 2061
+.long -510
+.long 2260
+.long 2107
+.long 6124
+.long 878
+.long -1076
+.long -1917
+.long 1374
+.long -260
+.long 2212
+.long 1577
+.long 4993
+.long 1351
+.long -176
+.long -2551
+.long 1498
+.long -837
+.long 3062
+.long 1593
+.long 5966
+.long 1924
+.long -401
+.long -2898
+.long 851
+.long -1453
+.long 3663
+.long 711
+.long 5193
+.long 2591
+.long -147
+.long -3211
+.long 1189
+.long -933
+.long 3892
+.long 1372
+.long 6362
+.long 2910
+.long 307
+.long -2047
+.long 1031
+.long -418
+.long 2426
+.long 1171
+.long 4570
+.long 1728
+.long 33
+.long -2015
+.long 819
+.long -318
+.long 2370
+.long 1132
+.long 4255
+.long 1900
+.long 347
+ prompt:
+ .string "*** Flag Checker ***"
+ prompt2:
+ .string "You entered:"
+ win:
+ .string "Congrats! You got the flag!"
+ lose:
+ .string "Sorry, wrong flag!"
