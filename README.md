@@ -10,6 +10,20 @@ The home to my CTF challenges
 | [js safe](<b01lersCTF2024/js-safe>)                                           | Reverse     | Javascript, obfuscation          |
 | [Catch me if you can](<b01lersCTF2024/catch-me-if-you-can>)                   | Reverse     | Python, Algorithm, Matrix        |
 
+## CursedCTF 2024
+
+> Note that this CTF is supposed to be cursed, all the challenge here are "non standard"
+
+| Name                                                       | Category    | Tags                             |
+| ---------------------------------------------------------- | ----------- | -------------------------------- |
+| [git-madness](<cursedctf2024/git-madness>)                 | Reverse     | FSM, git                         |
+| [crypto-curses](<cursedctf2024/chatgpt>)                   | Crypto      | cursed, LLM                      |
+| [babystego](<cursedctf2024/babystego>)                     | Stego       | cursed, not-stego                |
+| [fetusstego](<cursedctf2024/fetusstego>)                   | Stego       | average stego                    |
+| [geoguessr-extreme](<cursedctf2024/geoguessr-extreme>)     | Osint       | cursed, guess                    |
+| [geoguessr-extreme-2](<cursedctf2024/geoguessr-extreme-2>) | Osint       | cursed, dcode                    |
+| [check-sanity](<cursedctf2024/check-sanity>)               | Misc        | cursed, sanity-check             |
+
 ## HITCON CTF
 
 | Name                                                  | Category    | Tags                             |
