@@ -6,8 +6,8 @@ The home to my CTF challenges
 [Link to blog post](https://blog.bronson113.org/2024/04/15/b01lersctf-2024-author-writeup.html)
 | Name                                                                          | Category    | Tags                             |
 | ----------------------------------------------------------------------------- | ----------- | -------------------------------- |
-| [Choose the param](<b01lersCTF2024/choose_the_param>)                         | Reverse     | RSA, CRT                         |
-| [Count the counter](<b01lersCTF2024/count_the_counter>)                       | Reverse     | CTR                              |
+| [Choose the param](<b01lersCTF2024/choose_the_param>)                         | Crypto      | RSA, CRT                         |
+| [Count the counter](<b01lersCTF2024/count_the_counter>)                       | Crypto      | CTR                              |
 | [Propagating Counter Block Chaining](<b01lersCTF2024/counter_block_chaining>) | Crypto      | CTR, PCBC, Padding Oracle        |
 | [js safe](<b01lersCTF2024/js-safe>)                                           | Reverse     | Javascript, obfuscation          |
 | [Catch me if you can](<b01lersCTF2024/catch-me-if-you-can>)                   | Reverse     | Python, Algorithm, Matrix        |
