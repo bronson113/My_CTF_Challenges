@@ -1,0 +1,6 @@
+name: check-sanity
+author: bronson113
+description: |-
+    `cursedctf{cursedctf{cursedctf{cursedctf{cursedctf{cursedctf{flag}}}}}}`
+flag: haha i claimed the best challenge
+visible: true

@@ -1,0 +1,12 @@
+name: Geoguessr-Extreme
+author: bronson113
+description: |-
+  Guess the coordinate from the description
+
+  ```
+
+  ```
+
+  the flag format is cursedctf{123.456789,12.340000}
+flag: "cursedctf{0.000000,0.000000}"
+visible: true

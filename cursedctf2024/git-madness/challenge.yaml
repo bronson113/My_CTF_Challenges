@@ -1,0 +1,9 @@
+name: git madness
+author: bronson113
+description: |-
+    JDSL... but in git????
+    ps - it only took 4 minute on my machine to check the flag =D that's blazingly fast
+flag: cursed{7@m_IS_4_g3N1uS_41s0_c4n_tH1s_b3_C4lL3d_GCOP?_g1t_c0Mm1t_0ri3n7ed_pRogR4mm1N6}
+provide: ["./chal.tar.gz"]
+visible: true
+value: 1500

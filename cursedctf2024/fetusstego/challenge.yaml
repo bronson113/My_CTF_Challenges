@@ -1,0 +1,7 @@
+name: fetus stego
+author: bronson113
+description: |-
+    another easy stego
+flag: cursed{interlace_pixels_stego_huh??}
+provide: ["./flag.png"]
+visible: true

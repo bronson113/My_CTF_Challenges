@@ -1,0 +1,9 @@
+name: Baby Stego
+author: bronson113
+description: |-
+  Wow I make a image with the flag in powerpoint =D
+  
+  hint - replace the flag format to `cursedctf{.*}` when you found the flag
+flag: "cursedctf{I~AM~FLAG}"
+provide: ["./flag.png"]
+visible: true
