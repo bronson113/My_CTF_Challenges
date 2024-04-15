@@ -46,4 +46,4 @@ Link to blog post: [LessEQualmore/SUBformore](https://blog.bronson113.org/2023/0
 
 | Name                                                     | Category    | Tags                             |
 | -------------------------------------------------------- | ----------- | -------------------------------- |
-| [Padlock](<b01lersCTF2023/safe>)                         | Reverse     | Quine, Obfuscated C              |
+| [Padlock](<b01lersCTF2023/quine>)                         | Reverse     | Quine, Obfuscated C              |
