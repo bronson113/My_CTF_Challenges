@@ -1,9 +1,22 @@
 # My_CTF_Challenges
 The home to my CTF challenges
 
+## HITCON CTF 2024
+
+Link to blog post: To be updated
+
+| Name                                            | Category    | Tags                                          |
+| ----------------------------------------------- | ----------- | --------------------------------------------- |
+| [Gleamering Star](<HITCON CTF 2024/Gleamering>) | Crypto, Web | Gleam, Inconsistancy, erlang, Oracle          |
+| [Gleamering Hope](<HITCON CTF 2024/Gleamering>) | Pwn         | ROP, erlang, NIF                              |
+| [PCBC Revenge](<HITCON CTF 2023/PCBC_revenge>)  | Crypto      | CTR, PCBC, Padding Oracle, Linear Combination |
+| [Revisual](<HITCON CTF 2023/revisual>)          | Reverse     | Javascript, Shader                            |
+
+
 ## b01lersCTF 2024
 
 [Link to blog post](https://blog.bronson113.org/2024/04/15/b01lersctf-2024-author-writeup.html)
+
 | Name                                                                          | Category    | Tags                             |
 | ----------------------------------------------------------------------------- | ----------- | -------------------------------- |
 | [Choose the param](<b01lersCTF2024/choose_the_param>)                         | Crypto      | RSA, CRT                         |
@@ -28,7 +41,7 @@ The home to my CTF challenges
 | [geoguessr-extreme-2](<cursedctf2024/geoguessr-extreme-2>) | Osint       | cursed, dcode                    |
 | [check-sanity](<cursedctf2024/check-sanity>)               | Misc        | cursed, sanity-check             |
 
-## HITCON CTF
+## HITCON CTF 2023
 
 Link to blog post: [LessEQualmore/SUBformore](https://blog.bronson113.org/2023/09/10/hitcon-ctf-2023-lessequalmore-subformore.html)
 , [Careless Padding](https://blog.bronson113.org/2023/09/08/hitconctf-2023-careless-padding.html)
