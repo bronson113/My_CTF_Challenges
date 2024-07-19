@@ -1,0 +1,62 @@
+{> with item as Item
+{> with editing as Bool
+
+{> import gleam/int
+{> import gleamering_hope/item.{type Item}
+{> import glen
+
+<li 
+  id="item-{{ int.to_string(item.id) }}"
+  class="{% if item.encrypted %}encrypted{% endif %}"
+>
+  <div class="view">
+    <input
+      class="toggle"
+      type="checkbox"
+      autocomplete="off"
+      {% if item.encrypted %}checked{% endif %}
+    >
+
+    <label>
+      {{ glen.escape_html(item.content) }}
+    </label>
+
+    <a
+      class="edit-btn"
+      hx-get="/posts/{{ int.to_string(item.id) }}{% if item.encrypted %}/encrypt{% endif %}"
+      hx-target="#item-{{ int.to_string(item.id) }}"
+    >🗘</a>
+
+    <button
+      class="destroy"
+      hx-delete="/posts/{{ int.to_string(item.id) }}"
+      hx-target="#item-{{ int.to_string(item.id) }}"
+    ></button>
+    </form>
+
+    <form
+      class="post-mark"
+      hx-patch="/posts/{{ int.to_string(item.id) }}{% if item.encrypted %}/encrypt{% endif %}"
+      hx-target="#item-{{ int.to_string(item.id) }}"
+      hx-swap="outerHTML"
+    >
+      <button></button>
+    </form>
+  </div>
+
+  <input 
+    {% if editing %}
+    autofocus
+    onfocus="this.setSelectionRange(this.value.length,this.value.length)"
+    {% endif %}
+    required
+    maxlength="500"
+    class="edit"
+    type="text"
+    name="content"
+    value="{{ glen.escape_html(item.content) }}"
+    hx-patch="/posts/{{ int.to_string(item.id) }}"
+    hx-target="#item-{{ int.to_string(item.id) }}"
+    hx-swap="outerHTML"
+    hx-trigger="blur,keypress[key == 'Enter']"
+  >

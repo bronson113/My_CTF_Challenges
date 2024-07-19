@@ -1,0 +1,9 @@
+{> with item as Item
+{> with display as Bool
+
+{> import gleamering_light/templates/item as item_template
+{> import gleamering_hope/item.{type Item}
+
+{% if display %}
+{[ item_template.render_builder(item,False) ]}
+{% endif %}

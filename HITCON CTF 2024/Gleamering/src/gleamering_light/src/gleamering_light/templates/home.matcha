@@ -1,0 +1,74 @@
+{> with items as List(Item)
+{> with category as Category
+
+{> import gleamering_light/templates/item as item_template
+{> import gleamering_hope/item.{type Item, type Category}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="/static/assets/lucy.svg">
+  <link rel="icon" href="/static/assets/lucy.svg">
+  <link rel="stylesheet" href="/static/assets/main.css">
+  <script src="/static/vendor/htmx.min.js"></script>
+  <title>Gleamering</title>
+</head>
+<body class="learn-bar">
+  <aside class="learn">
+    <header>
+      <img id="logo" src="/static/assets/lucy.svg" alt="Gleam Logo">
+      <h3>Gleamering</h3>
+    </header>
+    <hr>
+    <span>
+      <h5>Original project: <a href="https://github.com/gleam-lang/example-todomvc">Todomvc</a></h3>
+    </span>
+  </aside>
+
+  <div class="gleamering-star-wrapper">
+    <section class="postapp">
+      <header class="header">
+        <h1>posts</h1>
+        <form id="post-form" hx-post="/posts">
+          <input
+            autofocus
+            required
+            maxlength="500"
+            class="new-post"
+            placeholder="What needs to be complete?"
+            name="content"
+            autocomplete="off"
+          >
+        </form>
+      </header>
+
+      <section class="main">
+        <ul id="post-list" class="post-list">
+          {% for item as Item in items %}
+          {[ item_template.render_builder(item,False) ]}
+          {% endfor %}
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <ul class="filters">
+          <li>
+            <a hx-boost="true" class="{% if category == item.All %}selected{% endif %}" href="/home">All</a>
+          </li>
+          <li>
+            <a hx-boost="true" class="{% if category == item.Plain %}selected{% endif %}" href="/plain">Plain</a>
+          </li>
+          <li>
+            <a hx-boost="true" class="{% if category == item.Encrypted %}selected{% endif %}" href="/encrypted">Encrypted</a>
+          </li>
+          <li>
+            <a class="" href="/logout">Logout</a>
+          </li>
+        </ul>
+
+      </footer>
+    </section>
+  </div>
+</body>
+</html>

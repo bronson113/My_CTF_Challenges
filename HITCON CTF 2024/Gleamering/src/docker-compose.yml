@@ -1,0 +1,7 @@
+
+services:
+  gleamering:
+    build: .
+    ports:
+      - "${PORT}:8000"
+

@@ -1,0 +1,14 @@
+challenge_name: Propagating Counter Block Chaining Revenge
+name: crypto_pcbcrevenge
+description: |
+  I see what I did wrong last time, now that it's fixed.
+  Link to original challenge 
+  https://blog.bronson113.org/2024/04/15/b01lersctf-2024-author-writeup.html#propagating-counter-block-chaining
+flag: hitcon{just_a_normal_padding_oracle_with_some_linear_algebra..._horray!_1f4614e8211bddb81b05b}
+author: bronson113
+category: crypto
+attachment: ./dist
+
+ports: # TCP ports to expose
+  - 3000
+compose: ./src/docker-compose.yml

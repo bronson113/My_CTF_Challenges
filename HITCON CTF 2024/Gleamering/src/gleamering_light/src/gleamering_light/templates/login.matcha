@@ -1,0 +1,52 @@
+{> with err as String
+
+{> import gleam/int
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="/static/assets/lucy.svg">
+  <link rel="icon" href="/static/assets/lucy.svg">
+  <link rel="stylesheet" href="/static/assets/main.css">
+  <script src="/static/vendor/htmx.min.js"></script>
+  <title>Gleamering</title>
+</head>
+<body class="learn-bar">
+  <aside class="learn">
+    <header>
+      <img id="logo" src="/static/assets/lucy.svg" alt="Gleam Logo">
+      <h3>Gleamering</h3>
+    </header>
+    <hr>
+    <span>
+      <h5>Original project: <a href="https://github.com/gleam-lang/example-todomvc">Todomvc</a></h3>
+    </span>
+  </aside>
+  
+  <div class="gleamering-star-wrapper">
+    <form action="/login" method="post" class="signup">
+      <p> Login! </p>
+      <div class="row">
+        <input class="sign" type="text" placeholder="Username" name="user">
+        <input class="sign" type="password" placeholder="Password" name="pass">
+      </div>
+      <div class="row">
+        <input class="sign-btn" type="submit">
+      </div>
+    </form>
+    <form action="/signup" method="post" class="signup">
+      <p> Sign up! </p>
+      <div class="row">
+        <input class="sign" type="text" placeholder="Username" name="user">
+        <input class="sign" type="password" placeholder="Password" name="pass">
+      </div>
+      <div class="row">
+        <input type="hidden" name="id" value="{{int.to_string(int.random(100000000))}}">
+        <input class="sign-btn" type="submit">
+      </div>
+    </form>
+    {{err}}
+  </div>
+</body>
+</html>

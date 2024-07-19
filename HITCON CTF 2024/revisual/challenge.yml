@@ -1,0 +1,11 @@
+challenge_name: Re-visual
+name: rev_re-visual
+description: |
+  Try to break into this beautiful starry vault
+flag: hitcon{hidden_calculation_through_varying_shader_variables_auto-magical_interpolation_0c4ea0d9d4d9518}
+author: bronson113
+category: rev
+attachment: ./dist
+
+ports: # TCP ports to expose
+  - 80
