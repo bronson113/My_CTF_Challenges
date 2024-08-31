@@ -9,8 +9,8 @@ Link to blog post: To be updated
 | ----------------------------------------------- | ----------- | --------------------------------------------- |
 | [Gleamering Star](<HITCON CTF 2024/Gleamering>) | Crypto, Web | Gleam, Inconsistant Interpretation, erlang    |
 | [Gleamering Hope](<HITCON CTF 2024/Gleamering>) | Pwn         | ROP, erlang, NIF                              |
-| [PCBC Revenge](<HITCON CTF 2023/PCBC_revenge>)  | Crypto      | CTR, PCBC, Padding Oracle                     |
-| [Revisual](<HITCON CTF 2023/revisual>)          | Reverse     | Javascript, Shader                            |
+| [PCBC Revenge](<HITCON CTF 2024/PCBC_revenge>)  | Crypto      | CTR, PCBC, Padding Oracle                     |
+| [Revisual](<HITCON CTF 2024/revisual>)          | Reverse     | Javascript, Shader                            |
 
 
 ## b01lersCTF 2024
